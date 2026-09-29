@@ -1,3 +1,9 @@
+
+<p align="center">
+  🇧🇷 <strong>Português</strong> |
+  <a href="README.en.md">🇺🇸 English</a>
+</p>
+
 # 📝 FastAPI To-Do List
 
 <p align="center">
