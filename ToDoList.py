@@ -131,7 +131,7 @@ def get_tarefa_por_id(
     return TarefaResposta.model_validate(tarefa)
 
 
-@app.post("/adcionar_tarefas")
+@app.post("/adicionar_tarefas")
 def post_tarefa(
     tarefa: TarefaCreate,
     db: Session = Depends(sessao_db),
