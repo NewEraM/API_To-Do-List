@@ -3,11 +3,15 @@ from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from pydantic import BaseModel, ConfigDict
 from typing import Optional
 import secrets
+import os
+from dotenv import load_dotenv
+
+load_dotenv()  # Carrega as variáveis de ambiente do arquivo .env
 
 from sqlalchemy import create_engine, Column, Integer, String, Boolean
 from sqlalchemy.orm import declarative_base, sessionmaker, Session
 
-DATABASE_URL = "sqlite:///./tarefas.db"
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
@@ -23,8 +27,8 @@ app = FastAPI(
     },
 )
 
-USER = "admin"
-PASSWORD = "admin"
+USER = os.getenv("USER")
+PASSWORD = os.getenv("PASSWORD")
 security = HTTPBasic()
 
 
